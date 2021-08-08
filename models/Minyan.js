@@ -7,6 +7,17 @@ const MinyanSchema = new mongoose.Schema(
       trim: true,
       maxLength: [75, "Name can not be more than 75 characters"],
     },
+    organizerName: {
+      type: String,
+      maxLength: [50, "Name can not be more than 50 characters"],
+    },
+    numberOfAttending: {
+      required: true,
+      type: Number,
+    },
+    attending: {
+      type: Array,
+    },
     slug: String,
     description: {
       type: String,
@@ -40,8 +51,12 @@ const MinyanSchema = new mongoose.Schema(
       type: String,
     },
     minyanTime: {
-      type: Date,
+      type: String,
       required: [true, "Please specify a time"],
+    },
+    minyanDate: {
+      type: String,
+      required: [true, "Please specify a date"],
     },
     createdAt: {
       type: Date,
@@ -49,6 +64,7 @@ const MinyanSchema = new mongoose.Schema(
     },
   },
   {
+    id: false,
     toJSON: { virtuals: true, toObject: { virtuals: true } },
   }
 );

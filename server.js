@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import { connectDB } from "./config/db.js";
 
 // route files
@@ -16,6 +17,9 @@ const app = express();
 
 //body parser
 app.use(express.json());
+
+//CORS
+app.use(cors());
 
 // logging middleware
 if (process.env.NODE_ENV === "development") {
