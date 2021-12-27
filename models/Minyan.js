@@ -62,6 +62,10 @@ const MinyanSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    canceled: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     id: false,
