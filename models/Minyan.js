@@ -29,17 +29,9 @@ const MinyanSchema = new mongoose.Schema(
       maxLength: [75, "Description can not be more than 75 characters"],
     },
     minyanLocation: {
-      name: {
-        type: String,
-        trim: true,
-        maxLength: [75, "Name can not be more than 75 characters"],
-      },
-      instructions: {
-        type: String,
-        trim: true,
-        maxLength: [150, "Name can not be more than 150 characters"],
-      },
-      required: [true, "Please specify a location"],
+      type: String,
+
+      maxLength: [400, "Description can not be more than 400 characters"],
     },
     phone: {
       type: String,
