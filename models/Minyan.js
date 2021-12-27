@@ -39,6 +39,7 @@ const MinyanSchema = new mongoose.Schema(
         trim: true,
         maxLength: [150, "Name can not be more than 150 characters"],
       },
+      required: [true, "Please specify a location"],
     },
     phone: {
       type: String,
