@@ -11,6 +11,10 @@ const MinyanSchema = new mongoose.Schema(
       type: String,
       maxLength: [50, "Name can not be more than 50 characters"],
     },
+    organizerContact: {
+      type: String,
+      maxLength: [100, "Organizer contact can not be more than 100 characters"],
+    },
     numberOfAttending: {
       required: true,
       type: Number,
