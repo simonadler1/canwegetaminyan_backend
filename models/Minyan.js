@@ -63,6 +63,7 @@ const MinyanSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    twoManMinyanMode: { type: Boolean, default: false },
   },
   {
     id: false,
