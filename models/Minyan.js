@@ -2,11 +2,6 @@ import mongoose from "mongoose";
 
 const MinyanSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      trim: true,
-      maxLength: [75, "Name can not be more than 75 characters"],
-    },
     organizerName: {
       type: String,
       maxLength: [50, "Name can not be more than 50 characters"],
