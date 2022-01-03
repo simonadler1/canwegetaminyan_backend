@@ -2,10 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
+import webPush from "web-push";
 import { connectDB } from "./config/db.js";
 
 // route files
 import minyan from "./routes/minyan.js";
+import notifications from "./routes/notifications.js";
 
 // load env
 dotenv.config({ path: "./config/config.env" });
@@ -21,6 +23,13 @@ app.use(express.json());
 //CORS
 app.use(cors());
 
+//set up push notications VAPID keys
+webPush.setVapidDetails(
+  "mailto:notifications@canwegetaminyan.com",
+  process.env.VAPID_PUBLIC_KEY,
+  process.env.VAPID_PRIVATE_KEY
+);
+
 // logging middleware
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -28,6 +37,7 @@ if (process.env.NODE_ENV === "development") {
 
 //mount routers
 app.use("/api/v1/minyan", minyan);
+app.use("/subscriber", notifications);
 
 const PORT = process.env.PORT || 5000;
 
