@@ -23,12 +23,12 @@ app.use(express.json());
 //CORS
 app.use(cors());
 
-//set up push notications VAPID keys
-webPush.setVapidDetails(
-  "mailto:notifications@canwegetaminyan.com",
-  process.env.VAPID_PUBLIC,
-  process.env.VAPID_PRIVATE
-);
+// //set up push notications VAPID keys
+// webPush.setVapidDetails(
+//   "mailto:notifications@canwegetaminyan.com",
+//   process.env.VAPID_PUBLIC,
+//   process.env.VAPID_PRIVATE
+// );
 
 // logging middleware
 if (process.env.NODE_ENV === "development") {
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "development") {
 
 //mount routers
 app.use("/api/v1/minyan", minyan);
-app.use("/subscriber", notifications);
+// app.use("/subscriber", notifications);
 
 const PORT = process.env.PORT || 5000;
 
