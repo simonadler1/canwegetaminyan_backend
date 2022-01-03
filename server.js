@@ -26,8 +26,8 @@ app.use(cors());
 //set up push notications VAPID keys
 webPush.setVapidDetails(
   "mailto:notifications@canwegetaminyan.com",
-  process.env.VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY
+  process.env.VAPID_PUBLIC,
+  process.env.VAPID_PRIVATE
 );
 
 // logging middleware

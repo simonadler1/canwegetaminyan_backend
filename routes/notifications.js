@@ -4,6 +4,4 @@ const router = express.Router();
 
 router.route("/").post(sendNotification);
 
-r;
-
 export default router;
