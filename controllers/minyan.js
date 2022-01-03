@@ -1,4 +1,5 @@
 import Minyan from "../models/Minyan.js";
+import { sendNotification } from "../controllers/notifications.js";
 
 // creat new minyan
 
@@ -42,7 +43,7 @@ export const updateMinyan = async (req, res, next) => {
     if (!minyan) {
       return res.status(400).json({ success: false, data: minyan });
     }
-
+    sendNotification({}, {}, {}, minyan);
     res.status(200).json({ success: true, data: minyan });
   } catch (error) {
     res.status(400).json({ success: false, errorMessage: error });
